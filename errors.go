@@ -24,16 +24,16 @@ func NewNonRetryableInternalError(msg string) InternalError {
     return newInternalError(msg, false)
 }
 
-type AggregateNotFoundError struct {
+type ResourceNotFoundError struct {
     wError
 }
 
-func NewAggregateNotFoundError(msg string) AggregateNotFoundError {
-    return AggregateNotFoundError{
+func NewResourceNotFoundError(msg string) ResourceNotFoundError {
+    return ResourceNotFoundError{
         wError{
             retryable: false,
-            code:      AggregateNotFoundErrorCode,
-            message:   fmt.Sprintf("Aggregate not found error: %s", msg),
+            code:      ResourceNotFoundErrorCode,
+            message:   fmt.Sprintf("Resource not found error: %s", msg),
         },
     }
 }
@@ -66,30 +66,30 @@ func NewValidationError(msg string) ValidationError {
     }
 }
 
-type AggregateAlreadyExistError struct {
+type ResourceAlreadyExistError struct {
     wError
 }
 
-func NewAggregateAlreadyExistError(msg string) AggregateAlreadyExistError {
-    return AggregateAlreadyExistError{
+func NewResourceAlreadyExistError(msg string) ResourceAlreadyExistError {
+    return ResourceAlreadyExistError{
         wError{
             retryable: false,
-            code:      AggregateAlreadyExistErrorCode,
-            message:   fmt.Sprintf("Aggregate already exist error: %s", msg),
+            code:      ResourceAlreadyExistErrorCode,
+            message:   fmt.Sprintf("Resource already exist error: %s", msg),
         },
     }
 }
 
-type WrongAggregateVersionError struct {
+type WrongResourceVersionError struct {
     wError
 }
 
-func NewWrongAggregateVersionError(msg string) WrongAggregateVersionError {
-    return WrongAggregateVersionError{
+func NewWrongResourceVersionError(msg string) WrongResourceVersionError {
+    return WrongResourceVersionError{
         wError{
             retryable: false,
-            code:      WrongAggregateVersionErrorCode,
-            message:   fmt.Sprintf("wrong Aggregate version error: %s", msg),
+            code:      WrongResourceVersionErrorCode,
+            message:   fmt.Sprintf("wrong Resource version error: %s", msg),
         },
     }
 }

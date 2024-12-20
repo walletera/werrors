@@ -4,11 +4,11 @@ type ErrorCode int
 
 const (
     InternalErrorCode ErrorCode = iota + 1
-    AggregateNotFoundErrorCode
+    ResourceNotFoundErrorCode
     TimeoutErrorCode
     ValidationErrorCode
-    AggregateAlreadyExistErrorCode
-    WrongAggregateVersionErrorCode
+    ResourceAlreadyExistErrorCode
+    WrongResourceVersionErrorCode
 )
 
 type WError interface {
