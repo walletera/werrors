@@ -1,16 +1,5 @@
 package werrors
 
-type ErrorCode int
-
-const (
-    InternalErrorCode ErrorCode = iota + 1
-    ResourceNotFoundErrorCode
-    TimeoutErrorCode
-    ValidationErrorCode
-    ResourceAlreadyExistErrorCode
-    WrongResourceVersionErrorCode
-)
-
 type WError interface {
     error
 
